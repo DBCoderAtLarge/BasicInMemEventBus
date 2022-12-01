@@ -39,4 +39,8 @@ jobs:
       - name: Build
         run: dotnet build --no-restore --configuration release ./src/BasicInMemEventBus.sln /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }} --no-restore
       - name: Test
-        run: dotnet test --no-build --verbosity normal --configuration Release ./src/BasicInMemEventBus.Tests/BasicInMemEventBus.Tests.csproj
+        run: dotnet test --no-build --verbosity normal --configuration Release ./src/BasicInMemEventBus.Tests/BasicInMemEventBus.Tests.csproj /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }}
+      - name: Package nuget
+        run: dotnet pack ./src/BasicInMemEventBus/BasicInMemEventBus.csproj --configuration Release -o:package /p:PackageVersion=${{ steps.gitversion.outputs.AssemblySemVer }}
+      - name: Push generated package to GitHub registry
+        run: dotnet nuget push ./package/*.nupkg  --source https://nuget.pkg.github.com/DBCoderAtLarge/index.json   --api-key ${{ github.token }}
