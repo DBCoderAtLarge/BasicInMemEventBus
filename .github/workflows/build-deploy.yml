@@ -26,4 +26,4 @@ jobs:
       - name: Build
         run: dotnet build --no-restore --configuration Release ./src/BasicInMemEventBus.sln
       - name: Test
-        run: dotnet test --no-build --verbosity normal ./src/BasicInMemEventBus.Tests/BasicInMemEventBus.Tests.csproj
+        run: dotnet test --no-build --verbosity normal --configuration Release ./src/BasicInMemEventBus.Tests/BasicInMemEventBus.Tests.csproj
