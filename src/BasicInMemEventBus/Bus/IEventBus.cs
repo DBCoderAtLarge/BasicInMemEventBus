@@ -4,6 +4,9 @@ namespace BasicInMemEventBus
 {
     public interface IEventBus
     {
-        void RaiseEvent(IEvent evt);
+        void Subscribe(IEventHandler handler);        
+        void Subscribe(IReadOnlyList<IEventHandler> handlers);        
+        void RaiseEvent(IEvent @event);
+        void UnSubscribe(IEventHandler handler);
     }
 }
