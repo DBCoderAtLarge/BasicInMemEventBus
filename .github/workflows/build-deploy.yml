@@ -2,29 +2,28 @@ name: nuget-build-deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: [ '6.0.x' ]    
+        dotnet-version: ['6.0.x']
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup dotnet ${{ matrix.dotnet-version }}
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: ${{ matrix.dotnet-version }}
-    - name: Display dotnet version
-      run: dotnet --version        
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal    
-    
+      - uses: actions/checkout@v3
+      - name: Setup dotnet ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Display dotnet version
+        run: dotnet --version
+      - name: Restore dependencies
+        run: dotnet restore ./src/BasicInMemEventBus.sln
+      - name: Build
+        run: dotnet build --no-restore --configuration Release ./src/BasicInMemEventBus.sln
+      - name: Test
+        run: dotnet test --no-build --verbosity normal ./src/BasicInMemEventBus.Tests/BasicInMemEventBus.Tests.csproj
