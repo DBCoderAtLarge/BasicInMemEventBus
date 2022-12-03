@@ -1,6 +1,7 @@
 using BasicInMemEventBus.Tests.Domain.Events;
 using BasicInMemEventBus.Tests.Domain.Handlers;
 using FakeItEasy;
+using FluentAssertions;
 using KesselRun.EventLockAndLoad.Event;
 
 namespace BasicInMemEventBus.Tests
@@ -22,6 +23,22 @@ namespace BasicInMemEventBus.Tests
             bus.RaiseEvent(evt);
 
             A.CallTo(() => handler.Handle(A<OrderCreatedEvent>.Ignored)).MustHaveHappened();
+        }
+        
+        [Fact]
+        public void ExpectedHandlerInvoked()
+        {
+            IEventBus bus = new EventBus();
+
+            var handler = new OrderCreatedEventHandler();
+
+            bus.Subscribe(handler);
+
+            var evt = new OrderCreatedEvent();
+
+            bus.RaiseEvent(evt);
+
+            evt.Message.Should().Be("This got submitted");
         }
     }
 }

@@ -3,8 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	<Version>1.0.1</Version>
+    <Nullable>enable</Nullable>	
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Company>Db Coder Inc</Company>
     <Authors>The Coder</Authors>

@@ -12,7 +12,7 @@ namespace BasicInMemEventBus.Tests.Domain.Handlers
     {
         public void Handle(OrderCreatedEvent orderSubmittedEvent)
         {
-            
+            orderSubmittedEvent.Message = "This got submitted";
         }
     }
 }
