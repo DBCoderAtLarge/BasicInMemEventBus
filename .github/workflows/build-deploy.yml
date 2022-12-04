@@ -30,6 +30,7 @@ jobs:
           NUGET_API_KEY: ${{ secrets.DB_CODER_PACKAGE }}
           GITHUB_TOKEN: ${{ github.token }}
         run: |
+          cd ./src/BasicInMemEventBus
           dotnet new tool-manifest
           dotnet tool install Cake.Tool
           dotnet tool restore
