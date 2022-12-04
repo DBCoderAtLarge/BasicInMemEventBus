@@ -8,9 +8,7 @@
     <Company>Db Coder Inc</Company>
     <Authors>The Coder</Authors>
     <PackageProjectUrl>https://github.com/DBCoderAtLarge/BasicInMemEventBus</PackageProjectUrl>    
-    <PackageTags>event-bus</PackageTags>
-    <Copyright>Copyright ©2018 Someone Else</Copyright>
-    <Description>A very basic in-memory event bus</Description>
+    <PackageTags>event-bus</PackageTags>    
     <PackageLicenseUrl>http://opensource.org/licenses/MS-PL</PackageLicenseUrl>
     <NeutralLanguage>en</NeutralLanguage>
     <RepositoryUrl>https://github.com/DBCoderAtLarge/BasicInMemEventBus</RepositoryUrl>
