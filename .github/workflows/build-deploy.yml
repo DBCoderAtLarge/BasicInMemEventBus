@@ -26,12 +26,12 @@ jobs:
         run: dotnet --version
       - name: Run cake
         shell : bash
-        env:
-          NUGET_API_KEY: ${{ secrets.DB_CODER_PACKAGE }}
+        env:          
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           cd ./src/BasicInMemEventBus
           dotnet new tool-manifest
-          dotnet tool install Cake.Tool --version 3.0.0          
+          dotnet tool install Cake.Tool --version 3.0.0
+          dotnet tool restore
           dotnet cake
 

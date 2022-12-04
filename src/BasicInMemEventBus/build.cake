@@ -134,7 +134,7 @@ Task("Default")
        .IsDependentOn("Version")
        .IsDependentOn("Build")
        .IsDependentOn("Test")
-       .IsDependentOn("Pack");
+       .IsDependentOn("Pack")
        .IsDependentOn("PublishGithub");
 
 RunTarget(target);
