@@ -76,7 +76,7 @@ Task("Test")
                                   Configuration = configuration,
                                   NoBuild = true,
                               };
-     var projects = GetFiles("../BasicInMemEventBus.Tests/*/*.csproj");
+     var projects = GetFiles("../BasicInMemEventBus.Tests/**/*.csproj");
      foreach(var project in projects )
      {
        Information($"Running Tests : { project.ToString()}");
