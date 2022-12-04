@@ -23,8 +23,7 @@ jobs:
       env:
         NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         GITHUB_TOKEN: ${{ github.token }}
-      run: | 
-        cd ./src/BasicInMemEventBus/
+      run: |         
         dotnet new tool-manifest
         dotnet tool install Cake.Tool
         dotnet tool restore
