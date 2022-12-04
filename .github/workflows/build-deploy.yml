@@ -32,7 +32,6 @@ jobs:
         run: |
           cd ./src/BasicInMemEventBus
           dotnet new tool-manifest
-          dotnet tool install Cake.Tool
-          dotnet tool restore
+          dotnet tool install Cake.Tool --version 3.0.0          
           dotnet cake
 
